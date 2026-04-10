@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.scss";
 import aboutImg from "../../../assets/About/About.png";
+import trailArrowIcon from "../../../assets/trail-arrow-icon.png"; // Add your trail arrow logo image
 
 const About = () => {
   return (
@@ -35,12 +36,7 @@ const About = () => {
         {/* Button Left Side */}
         <button className="about__btn">
           FREE TRAIL
-          <span className="arrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7" stroke="#000000" strokeWidth="2"/>
-              <path d="M7 7H17V17" stroke="#000000" strokeWidth="2"/>
-            </svg>
-          </span>
+          <img src={trailArrowIcon} alt="arrow" className="btn-arrow-icon" />
         </button>
 
       </div>

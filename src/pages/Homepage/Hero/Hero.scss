@@ -1,192 +1,271 @@
-.hero {
-  width: 100%;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -34px;
-  padding-top: 0;
-  top: 0;
+  .hero {
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -34px;
+    padding-top: 0;
+    top: 0;
 
-  /* Desktop Large (1400px and above) */
-  @media (min-width: 1400px) {
-    height: calc(100vh - 80px);
-    min-height: 700px;
+    /* Desktop Large (1400px and above) */
+    @media (min-width: 1400px) {
+      height: calc(100vh - 80px);
+      min-height: 700px;
+    }
+
+    /* Desktop (1200px to 1399px) */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      height: calc(100vh - 80px);
+      min-height: 650px;
+    }
+
+    /* Desktop Small (992px to 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      height: calc(100vh - 75px);
+      min-height: 600px;
+    }
+
+    /* Tablet Landscape (768px to 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      height: calc(100vh - 70px);
+      min-height: 550px;
+    }
+
+    /* Tablet Portrait (576px to 767px) */
+    @media (min-width: 576px) and (max-width: 767px) {
+      height: calc(100vh - 60px);
+      min-height: 500px;
+    }
+
+    /* Mobile (below 575px) */
+    @media (max-width: 575px) {
+      height: calc(100vh - 55px);
+      min-height: 480px;
+    }
   }
 
-  /* Desktop (1200px to 1399px) */
-  @media (min-width: 1200px) and (max-width: 1399px) {
-    height: calc(100vh - 80px);
-    min-height: 650px;
+  .hero__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 30, 30, 0.65);
+    top: 0;
+    left: 0;
   }
 
-  /* Desktop Small (992px to 1199px) */
-  @media (min-width: 992px) and (max-width: 1199px) {
-    height: calc(100vh - 75px);
-    min-height: 600px;
+  .hero__content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    max-width: 900px;
+    padding: 20px;
+    margin-top: 0;
+    width: 100%;
+    z-index: 2;
+
+    /* Tablet Portrait */
+    @media (max-width: 768px) {
+      max-width: 85%;
+      padding: 15px;
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      max-width: 90%;
+      padding: 10px;
+    }
   }
 
-  /* Tablet Landscape (768px to 991px) */
-  @media (min-width: 768px) and (max-width: 991px) {
-    height: calc(100vh - 70px);
-    min-height: 550px;
-  }
-
-  /* Tablet Portrait (576px to 767px) */
-  @media (min-width: 576px) and (max-width: 767px) {
-    height: calc(100vh - 60px);
-    min-height: 500px;
-  }
-
-  /* Mobile (below 575px) */
-  @media (max-width: 575px) {
-    height: calc(100vh - 55px);
-    min-height: 480px;
-  }
-}
-
-.hero__overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(30, 30, 30, 0.65);
-  top: 0;
-  left: 0;
-}
-
-.hero__content {
-  position: relative;
-  text-align: center;
-  color: #fff;
-  max-width: 900px;
-  padding: 20px;
-  margin-top: 0;
-  width: 100%;
-  z-index: 2;
-
-  /* Tablet Portrait */
-  @media (max-width: 768px) {
-    max-width: 85%;
-    padding: 15px;
-  }
-
-  /* Mobile */
-  @media (max-width: 575px) {
-    max-width: 90%;
-    padding: 10px;
-  }
-}
-
-/* INVEST IN OPPORTUNITY Tag */
-.hero__tag {
-  color: #1dbf73;
-  letter-spacing: 2px;
-  font-size: 14px;
-//   margin-bottom: 20px;
-  display: inline-block;
-
-  /* Desktop Small */
-  @media (max-width: 992px) {
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    margin-bottom: 18px;
-  }
-
-  /* Tablet */
-  @media (max-width: 768px) {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-  }
-
-  /* Mobile */
-  @media (max-width: 575px) {
-    font-size: 11px;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-}
-
-/* Main Heading */
-.hero__content h1 {
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  color: white;
-
-  /* Desktop Small */
-  @media (max-width: 1200px) {
-    font-size: 54px;
-  }
-
-  @media (max-width: 992px) {
-    font-size: 46px;
-    line-height: 1.25;
-  }
-
-  /* Tablet */
-  @media (max-width: 768px) {
-    font-size: 38px;
-    line-height: 1.3;
-    margin-bottom: 18px;
-  }
-
-  /* Mobile Large */
-  @media (max-width: 575px) {
-    font-size: 30px;
-    line-height: 1.35;
-    margin-bottom: 15px;
-  }
-
-  /* Mobile Small */
-  @media (max-width: 400px) {
-    font-size: 26px;
-    line-height: 1.4;
-  }
-}
-
-.hero__content h1 span {
-  color: #1dbf73;
-}
-
-/* Description */
-.hero__desc {
-  font-size: 16px;
-  color: #ddd;
-  margin-bottom: 30px;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-
-  /* Desktop Small */
-  @media (max-width: 992px) {
-    font-size: 15px;
-    max-width: 550px;
-    margin-bottom: 25px;
-  }
-
-  /* Tablet */
-  @media (max-width: 768px) {
+  /* INVEST IN OPPORTUNITY Tag */
+  .hero__tag {
+    color: #1dbf73;
+    letter-spacing: 2px;
     font-size: 14px;
-    max-width: 500px;
-    margin-bottom: 22px;
-    padding: 0 10px;
+  //   margin-bottom: 20px;
+    display: inline-block;
+
+    /* Desktop Small */
+    @media (max-width: 992px) {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      margin-bottom: 15px;
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
   }
 
-  /* Mobile */
-  @media (max-width: 575px) {
-    font-size: 13px;
-    max-width: 100%;
+  /* Main Heading */
+  .hero__content h1 {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.2;
     margin-bottom: 20px;
-    padding: 0 5px;
-  }
-}
+    color: white;
 
-/* GET STARTED Button */
+    /* Desktop Small */
+    @media (max-width: 1200px) {
+      font-size: 54px;
+    }
+
+    @media (max-width: 992px) {
+      font-size: 46px;
+      line-height: 1.25;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      font-size: 38px;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    /* Mobile Large */
+    @media (max-width: 575px) {
+      font-size: 30px;
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    /* Mobile Small */
+    @media (max-width: 400px) {
+      font-size: 26px;
+      line-height: 1.4;
+    }
+  }
+
+  .hero__content h1 span {
+    color: #1dbf73;
+  }
+
+  /* Description */
+  .hero__desc {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 30px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Desktop Small */
+    @media (max-width: 992px) {
+      font-size: 15px;
+      max-width: 550px;
+      margin-bottom: 25px;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      font-size: 14px;
+      max-width: 500px;
+      margin-bottom: 22px;
+      padding: 0 10px;
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      font-size: 13px;
+      max-width: 100%;
+      margin-bottom: 20px;
+      padding: 0 5px;
+    }
+  }
+
+  /* GET STARTED Button */
+  .hero__btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+
+    /* Desktop Small */
+    @media (max-width: 992px) {
+      padding: 12px 26px;
+      font-size: 14px;
+      gap: 9px;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      padding: 11px 24px;
+      font-size: 14px;
+      gap: 8px;
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      padding: 10px 20px;
+      font-size: 13px;
+      gap: 8px;
+    }
+
+    /* Mobile Small */
+    @media (max-width: 400px) {
+      padding: 8px 16px;
+      font-size: 12px;
+      gap: 6px;
+    }
+  }
+
+  .hero__btn:hover {
+    transform: scale(1.05);
+    background: #f5f5f5;
+  }
+
+  /* Arrow Icon */
+  .arrow {
+    font-size: 18px;
+    display: inline-block;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+
+  /* Body reset */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  /* GET STARTED Button */
 .hero__btn {
   background: #fff;
   color: #000;
@@ -234,21 +313,26 @@
   background: #f5f5f5;
 }
 
-/* Arrow Icon */
-.arrow {
-  font-size: 18px;
+/* Arrow Icon Image */
+.arrow-icon {
+  width: 28px;
+  height: 28px;
   display: inline-block;
+  object-fit: contain;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    width: 16px;
+    height: 16px;
   }
 
   @media (max-width: 575px) {
-    font-size: 15px;
+    width: 15px;
+    height: 15px;
   }
 
   @media (max-width: 400px) {
-    font-size: 14px;
+    width: 14px;
+    height: 14px;
   }
 }
 

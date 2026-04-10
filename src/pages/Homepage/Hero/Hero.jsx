@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.scss";
 import heroImg from "../../../assets/Hero/Hero1.png";
+import arrowIcon from "../../../assets/Hero/arrow.png"; // Add your arrow logo image
 
 const Hero = () => {
   return (
@@ -27,7 +28,7 @@ const Hero = () => {
 
         <button className="hero__btn">
           GET STARTED
-          <span className="arrow">↗</span>
+          <img src={arrowIcon} alt="arrow" className="arrow-icon" />
         </button>
       </div>
     </div>
