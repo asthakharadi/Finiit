@@ -1,0 +1,310 @@
+/* ===== NAVBAR MAIN STYLES ===== */
+.navbar {
+  width: 100%;
+  background: #000;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+
+  @media (max-width: 1024px) {
+    padding: 12px 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+/* ===== LEFT SECTION - LOGO ===== */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 90px;
+}
+
+.navbar__left img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+
+  @media (max-width: 1024px) {
+    height: 70px;
+  }
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    height: 50px;
+    margin-left: -80px;
+  }
+}
+
+/* ===== RIGHT SECTION - DESKTOP MENU ===== */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  margin-right: 90px;
+
+  @media (max-width: 1199px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    gap: 25px;
+  }
+}
+
+.navbar__right span {
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  color: #ddd;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: #1dbf73;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+}
+
+.consult-btn {
+  background: #1dbf73;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #17a863;
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 1024px) {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+/* ===== HAMBURGER MENU BUTTON - CHOTA AUR CLEAN ===== */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+  position: relative;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    margin: 4px 0;
+  }
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    padding: 6px;
+    
+    span {
+      width: 20px;
+      height: 2px;
+      margin: 3px 0;
+    }
+  }
+}
+
+/* Hamburger to Cross Animation */
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ===== MOBILE NAVIGATION MENU - NO LOGO ===== */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background: #000;
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  padding: 60px 25px 25px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+
+  &.active {
+    right: 0;
+  }
+
+  @media (max-width: 1024px) {
+    width: 65%;
+    max-width: 280px;
+    padding: 55px 20px 20px;
+  }
+
+  @media (max-width: 768px) {
+    width: 70%;
+    max-width: 260px;
+  }
+
+  @media (max-width: 480px) {
+    width: 75%;
+    max-width: 240px;
+    padding: 50px 20px 20px;
+  }
+}
+
+/* Close Button - Top Right */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.3s;
+  z-index: 1001;
+
+  &:hover {
+    color: #1dbf73;
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+    top: 12px;
+    right: 18px;
+  }
+}
+
+/* Mobile Menu List */
+.mobile-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.3s ease;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+      padding: 10px 0;
+      transition: 0.3s;
+      font-weight: 500;
+
+      &:hover {
+        color: #1dbf73;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .mobile-nav.active & li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-nav.active & li:nth-child(1) { transition-delay: 0.05s; }
+  .mobile-nav.active & li:nth-child(2) { transition-delay: 0.1s; }
+  .mobile-nav.active & li:nth-child(3) { transition-delay: 0.15s; }
+  .mobile-nav.active & li:nth-child(4) { transition-delay: 0.2s; }
+}
+
+/* Mobile Consult Button */
+.mobile-consult-btn {
+  background: #1dbf73;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+  margin-top: 10px;
+
+  &:hover {
+    background: #17a863;
+    transform: scale(1.02);
+  }
+}
+
+/* ===== OVERLAY WHEN MENU IS OPEN ===== */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
