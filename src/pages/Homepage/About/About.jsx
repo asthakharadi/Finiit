@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./About.scss";
-import aboutImg from "../../../assets/About/About1.png";
+import aboutImg from "../../../assets/About/about1.png";
 import trailArrowIcon from "../../../assets/Hero/arrow.png";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
