@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Hero.scss";
-import heroImg from "../../../assets/Hero/Hero1.png";
+import heroImg from "../../../assets/DomesticMarketExpertise/hero.png";
 import arrowIcon from "../../../assets/Hero/black-arrow.svg";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
@@ -127,16 +127,18 @@ const Hero = () => {
           >
             <MdKeyboardDoubleArrowUp className="tag-arrow" />
           </motion.span>
-          INVEST IN OPPORTUNITY
+          DOMESTIC MARKET EXPERTISE
         </motion.p>
 
         <motion.h1 variants={fadeInUp}>
-          Everything your business <br />
-          needs <span>IT, software,</span> & <span>finance</span> right at your fingertips.
+          Complete<span> Financial &</span> <br /><span>Compliance </span>
+         Solutions for <br />Your Business
         </motion.h1>
 
         <motion.p className="hero__desc" variants={fadeInUp}>
-          We are a new-age startup with a team of qualified and experienced professionals.
+          From registrations to filings and financial advisory, we simplify your business
+operations with reliable and efficient services.
+
         </motion.p>
 
         <motion.button

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Hero.scss";
-import heroImg from "../../../assets/Hero/Hero1.png";
+import heroImg from "../../../assets/Contact/hero.png";
 import arrowIcon from "../../../assets/Hero/black-arrow.svg";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
@@ -127,16 +127,18 @@ const Hero = () => {
           >
             <MdKeyboardDoubleArrowUp className="tag-arrow" />
           </motion.span>
-          INVEST IN OPPORTUNITY
+          CONNECT WITH US
         </motion.p>
 
         <motion.h1 variants={fadeInUp}>
-          Everything your business <br />
-          needs <span>IT, software,</span> & <span>finance</span> right at your fingertips.
+          Let’s <span>Build</span> Smarter
+          <br />
+          <span>Solutions</span> for Your <span>Business</span>
         </motion.h1>
 
         <motion.p className="hero__desc" variants={fadeInUp}>
-          We are a new-age startup with a team of qualified and experienced professionals.
+          Have questions about IT services, software, or financial solutions? Our team
+          is ready to guide you with the right strategy.
         </motion.p>
 
         <motion.button
@@ -147,7 +149,7 @@ const Hero = () => {
           whileHover="hover"
           whileTap="tap"
         >
-          GET STARTED
+          SCHEDULE A CALL
           <img src={arrowIcon} alt="arrow" className="arrow-icon" />
         </motion.button>
       </motion.div>

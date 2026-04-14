@@ -70,14 +70,13 @@
     left: 0;
 }
 
-
 .hero__content {
     position: relative;
     text-align: center;
     color: #fff;
     max-width: 900px;
     padding: 20px;
-    margin-top: 70px !important;
+    margin-top: 0;
     width: 100%;
     z-index: 2;
 
@@ -101,10 +100,12 @@
 
 /* INVEST IN OPPORTUNITY Tag - Roboto Font */
 .hero__tag {
-    color: #1dbf73;
+    color: #239a72;
     letter-spacing: 2px;
     font-size: 14px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: 'Roboto', sans-serif;
 
     /* Desktop Small */
@@ -112,6 +113,7 @@
       font-size: 13px;
       letter-spacing: 1.5px;
       margin-bottom: 18px;
+      gap: 5px;
     }
 
     /* Tablet */
@@ -119,6 +121,7 @@
       font-size: 12px;
       letter-spacing: 1.5px;
       margin-bottom: 15px;
+      gap: 5px;
     }
 
     /* Mobile */
@@ -126,6 +129,7 @@
       font-size: 11px;
       letter-spacing: 1px;
       margin-bottom: 12px;
+      gap: 4px;
     }
 }
 
@@ -136,10 +140,8 @@
     line-height: 1.2;
     margin-bottom: 20px;
     color: white;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px !important;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 0;
-
 
     /* Desktop Small */
     @media (max-width: 1200px) {
@@ -179,6 +181,8 @@
 
 .hero__content h1 span {
     color: #239a72;
+    letter-spacing: 1.5px;
+    
 }
 
 /* Description - Roboto Font */
@@ -305,6 +309,23 @@
     }
 }
 
+/* Tag arrow icon style */
+.tag-arrow {
+    font-size: 30px;
+    color: #1dbf73 !important;
+    
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+    
+    @media (max-width: 575px) {
+      font-size: 12px;
+    }
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
+}
+
 /* Body reset - Roboto as default font */
 body {
     margin: 0;
@@ -316,55 +337,4 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-
-/* INVEST IN OPPORTUNITY Tag - Roboto Font */
-.hero__tag {
-    color: #239a72;
-    letter-spacing: 2px;
-    font-size: 14px;
-    display: inline-flex;  /* Changed from inline-block to inline-flex */
-    align-items: center;
-    gap: 6px;  /* Gap between icon and text */
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 15px;
-
-    /* Desktop Small */
-    @media (max-width: 992px) {
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      margin-bottom: 18px;
-      gap: 5px;
-    }
-
-    /* Tablet */
-    @media (max-width: 768px) {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      margin-bottom: 15px;
-      gap: 5px;
-    }
-
-    /* Mobile */
-    @media (max-width: 575px) {
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      gap: 4px;
-    }
-}
-
-/* Tag arrow icon style */
-.tag-arrow {
-    font-size: 16px;
-    color: #1dbf73 !important;
-    
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-    
-    @media (max-width: 575px) {
-      font-size: 12px;
-    }
 }
