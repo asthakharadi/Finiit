@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import logo from "../../assets/Navbar/logo3.svg";
 
+
 const Footer = () => {
   const handlePhoneClick = () => {
     window.location.href = "tel:+919099300717";
