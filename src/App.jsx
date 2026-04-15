@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import ScrollToTop from "./components/GoToTop/GoToTop/ScrollToTop"
 import Home from "./pages/Homepage/Home";
 import Contact from "./pages/Contactpage/Contact";
 import DomesticMarketExpertise from "./pages/DomesticMarketExpertise/DomesticMarketExpertise";
 import Footer from "./components/Footer/Footer";
+import "./App.css";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <Navbar />
         <Routes>

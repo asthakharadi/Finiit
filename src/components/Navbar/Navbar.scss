@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  overflow: hidden; /* ✅ As you requested - no change */
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     padding: 12px 30px;
@@ -85,7 +85,13 @@
   }
 }
 
-.navbar__right span {
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar__right span,
+.nav-link span {
   font-size: 14px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -101,6 +107,12 @@
     font-size: 13px;
     letter-spacing: 1.5px;
   }
+}
+
+/* desktop active */
+.navbar__right span.active,
+.nav-link.active span {
+  color: #1dbf73;
 }
 
 .consult-btn {
@@ -126,82 +138,8 @@
   }
 }
 
-/* ===== SERVICES DROPDOWN - VISIBLE OUTSIDE NAVBAR ===== */
-.services-dropdown {
-  position: static; /* Changed from relative to static */
-  display: inline-block;
-}
-
-.dropdown-arrow-icon {
-  transition: transform 0.3s ease;
-  font-size: 24px;
-
-  &.open {
-    transform: rotate(180deg);
-  }
-}
-
-/* Dropdown positioned relative to body, outside navbar */
-.dropdown-menu {
-  position: fixed; /* Changed from absolute to fixed */
-  top: 110px; /* Adjust based on your navbar height */
-  left: auto;
-  background: #000;
-  min-width: 250px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  animation: dropdownFadeIn 0.2s ease;
-    border: 2px solid #239a72;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 20px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #000;
-  }
-}
-
-/* Calculate dropdown position dynamically via JS or use this */
-// .dropdown-menu {
-//   transform: translateX(calc(50% - 50px)); /* Adjust based on SERVICES position */
-// }
-
-.dropdown-item {
-  padding: 12px 20px;
-  color: #ddd;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-    border: 2px solid #239a72;
-
-  &:hover {
-    background: #1dbf73;
-    color: #fff;
-    padding-left: 25px;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-}
-
-@keyframes dropdownFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.consult-btn.active {
+  background: #17a863;
 }
 
 /* ===== HAMBURGER MENU BUTTON ===== */
@@ -230,7 +168,7 @@
 
   @media (max-width: 768px) {
     padding: 6px;
-    
+
     span {
       width: 20px;
       margin: 3px 0;
@@ -256,377 +194,44 @@
   top: 0;
   right: -100%;
   width: 100%;
-  height: 40vh;
+  height: auto;
+  max-height: 80vh;
   background: #000;
   z-index: 1000;
   transition: right 0.3s ease-in-out;
-  padding: 60px 25px 25px;
+  padding: 60px 20px 30px;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  overflow-y: auto;
 
   &.active {
     right: 0;
+    top: 50px;
   }
 
   @media (max-width: 1024px) {
-    height: 30vh;
-    padding: 55px 25px 25px;
+    max-height: 75vh;
+    padding: 55px 20px 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
   }
 
   @media (max-width: 768px) {
-    height: 40vh;
-    padding: 50px 20px 20px;
+    max-height: 80vh;
+    padding: 50px 15px 25px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
 
   @media (max-width: 480px) {
-    height: 35vh;
-    padding: 45px 15px 20px;
+    max-height: 85vh;
+    padding: 45px 15px 25px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
 }
 
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 10px;
-  transition: 0.3s;
-  z-index: 1001;
-
-  &:hover {
-    color: #1dbf73;
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    font-size: 26px;
-    top: 12px;
-    right: 18px;
-    padding: 8px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 24px;
-    top: 10px;
-    right: 15px;
-    padding: 6px;
-  }
-}
-
-.mobile-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-
-  li {
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.3s ease;
-    text-align: center;
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      display: block;
-      padding: 10px 0;
-      transition: 0.3s;
-      font-weight: 500;
-
-      &:hover {
-        color: #1dbf73;
-        padding-left: 10px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      margin-bottom: 18px;
-      
-      a {
-        font-size: 17px;
-        padding: 8px 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      margin-bottom: 15px;
-      
-      a {
-        font-size: 16px;
-        padding: 6px 0;
-      }
-    }
-  }
-
-  .mobile-nav.active & li {
-    opacity: 1;
-    transform: translateX(0);
-    
-  }
-
-  .mobile-nav.active & li:nth-child(1) { transition-delay: 0.05s; }
-  .mobile-nav.active & li:nth-child(2) { transition-delay: 0.1s; }
-  .mobile-nav.active & li:nth-child(3) { transition-delay: 0.15s; }
-  .mobile-nav.active & li:nth-child(4) { transition-delay: 0.2s; }
-}
-
-.mobile-consult-btn {
-  background: #1dbf73;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 40px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  width: auto;
-  min-width: 160px;
-  transition: 0.3s;
-  margin-top: 10px;
-  display: inline-block;
-
-  &:hover {
-    background: #17a863;
-    transform: scale(1.02);
-  }
-
-  @media (max-width: 768px) {
-    padding: 9px 18px;
-    font-size: 14px;
-    min-width: 150px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 8px 16px;
-    font-size: 13px;
-    min-width: 140px;
-    margin-top: 5px;
-  }
-}
-
-.mobile-menu li:last-child {
-  text-align: center;
-}
-
-/* ===== MOBILE DROPDOWN STYLES ===== */
-.mobile-services-item {
-  position: relative;
-  width: 100%;
-  
-  .mobile-services-trigger {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 10px 0;
-    transition: 0.3s;
-    font-weight: 500;
-    cursor: pointer;
-    width: 100%;
-    
-    
-    &:hover {
-      color: #1dbf73;
-      
-    }
-    
-    @media (max-width: 768px) {
-      font-size: 17px;
-      padding: 8px 0;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 16px;
-      padding: 6px 0;
-    }
-  }
-}
-
-.mobile-dropdown-arrow-icon {
-  transition: transform 0.3s ease;
-  font-size: 24px;
-  
-  &.open {
-    transform: rotate(180deg);
-  }
-}
-
-.mobile-dropdown-menu {
-  list-style: none;
-  padding: 10px 0;
-  margin: 10px auto 0;
-  background: rgba(29, 191, 115, 0.1);
-  border-radius: 8px;
-  animation: dropdownFadeIn 0.2s ease;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-   border: 2px solid #239a72; 
-  
-  li {
-    margin-bottom: 10px !important;
-    text-align: center;
-    
-    
-    a {
-      font-size: 16px !important;
-      padding: 8px 0 !important;
-      display: block;
-      
-      
-      &:hover {
-        color: #1dbf73 !important;
-        padding-left: 15px !important;
-        
-      }
-      
-      @media (max-width: 768px) {
-        font-size: 15px !important;
-      }
-      
-      @media (max-width: 480px) {
-        font-size: 14px !important;
-      }
-    }
-    
-    &:last-child {
-      margin-bottom: 0 !important;
-    }
-  }
-}
-
-/* ===== OVERLAY ===== */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-/* ===== MOBILE DROPDOWN STYLES ===== */
-.mobile-services-item {
-  position: relative;
-  width: 100%;
-  
-  .mobile-services-trigger {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 10px 0;
-    transition: 0.3s;
-    font-weight: 500;
-    cursor: pointer;
-    width: 100%;
-    
-    &:hover {
-      color: #1dbf73;
-    }
-    
-    @media (max-width: 768px) {
-      font-size: 17px;
-      padding: 8px 0;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 16px;
-      padding: 6px 0;
-    }
-  }
-}
-
-.mobile-dropdown-arrow-icon {
-  transition: transform 0.3s ease;
-  font-size: 24px;
-  
-  &.open {
-    transform: rotate(180deg);
-  }
-}
-
-.mobile-dropdown-menu {
-  list-style: none;
-  padding: 12px 0;
-  margin: 8px auto 0;
-  background: rgba(29, 191, 115, 0.15);
-  border-radius: 12px;
-  animation: dropdownFadeIn 0.2s ease;
-  width: 100%; /* Full width */
-  max-width: 100%; /* No max-width restriction */
-  
-  li {
-    margin-bottom: 12px !important;
-    text-align: center;
-    
-    a {
-      font-size: 16px !important;
-      padding: 10px 15px !important;
-      display: block;
-      color: white;
-      text-decoration: none;
-      white-space: normal; /* Allow text wrap */
-      word-wrap: break-word; /* Break long words */
-      line-height: 1.4;
-      
-      &:hover {
-        color: #1dbf73 !important;
-        background: rgba(255, 255, 255, 0.1);
-      }
-      
-      @media (max-width: 768px) {
-        font-size: 15px !important;
-        padding: 8px 12px !important;
-      }
-      
-      @media (max-width: 480px) {
-        font-size: 14px !important;
-        padding: 8px 10px !important;
-      }
-    }
-    
-    &:last-child {
-      margin-bottom: 0 !important;
-    }
-  }
-}
-
-/* Mobile Menu List - Fix spacing */
 .mobile-menu {
   list-style: none;
   padding: 0;
@@ -644,7 +249,9 @@
     text-align: center;
     width: 100%;
 
-    a {
+    a,
+    span,
+    .mobile-services-link {
       color: white;
       text-decoration: none;
       font-size: 18px;
@@ -653,7 +260,7 @@
       transition: 0.3s;
       font-weight: 500;
       border-radius: 8px;
-      white-space: nowrap;
+      cursor: pointer;
 
       &:hover {
         color: #1dbf73;
@@ -661,10 +268,19 @@
       }
     }
 
+    a.active,
+    span.active,
+    .mobile-services-link.active {
+      color: #1dbf73;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     @media (max-width: 768px) {
       margin-bottom: 18px;
-      
-      a {
+
+      a,
+      span,
+      .mobile-services-link {
         font-size: 17px;
         padding: 8px 18px;
       }
@@ -672,11 +288,12 @@
 
     @media (max-width: 480px) {
       margin-bottom: 15px;
-      
-      a {
+
+      a,
+      span,
+      .mobile-services-link {
         font-size: 16px;
         padding: 6px 16px;
-        white-space: nowrap;
       }
     }
   }
@@ -686,13 +303,20 @@
     transform: translateX(0);
   }
 
-  .mobile-nav.active & li:nth-child(1) { transition-delay: 0.05s; }
-  .mobile-nav.active & li:nth-child(2) { transition-delay: 0.1s; }
-  .mobile-nav.active & li:nth-child(3) { transition-delay: 0.15s; }
-  .mobile-nav.active & li:nth-child(4) { transition-delay: 0.2s; }
+  .mobile-nav.active & li:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  .mobile-nav.active & li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  .mobile-nav.active & li:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  .mobile-nav.active & li:nth-child(4) {
+    transition-delay: 0.2s;
+  }
 }
 
-/* Mobile Consult Button */
 .mobile-consult-btn {
   background: #1dbf73;
   color: white;
@@ -727,40 +351,35 @@
   }
 }
 
-/* Ensure proper height for mobile nav */
-.mobile-nav {
+.mobile-consult-btn.active {
+  background: #17a863;
+}
+
+/* ===== OVERLAY ===== */
+.menu-overlay {
   position: fixed;
   top: 0;
-  right: -100%;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: 80vh;
-  background: #000;
-  z-index: 1000;
-  transition: right 0.3s ease-in-out;
-  padding: 60px 20px 30px;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  overflow-y: auto;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
 
-  &.active {
-    right: 0;
-    top: 50px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
 
-  @media (max-width: 1024px) {
-    max-height: 75vh;
-    padding: 55px 20px 25px;
-  }
-
-  @media (max-width: 768px) {
-    max-height: 80vh;
-    padding: 50px 15px 25px;
-  }
-
-  @media (max-width: 480px) {
-    max-height: 85vh;
-    padding: 45px 15px 25px;
-  }
+/* Mobile Services Link Specific */
+.mobile-services-link {
+  background: transparent;
+  border: none;
+  width: auto;
+  font-family: inherit;
 }

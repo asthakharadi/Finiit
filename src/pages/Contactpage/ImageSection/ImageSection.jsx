@@ -50,7 +50,7 @@ const ImageSection = () => {
         </p>
 
         <h2>Our Location</h2>
-        <div className="image-section__divider"></div>
+        {/* <div className="image-section__divider"></div> */}
         <p>
           Visit us at our store in Vadodara. We are always happy to assist you
           with your requirements.

@@ -9,10 +9,12 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Navbar/logo3.svg";
 
-
 const Footer = () => {
+  const navigate = useNavigate();
+
   const handlePhoneClick = () => {
     window.location.href = "tel:+919099300717";
   };
@@ -24,11 +26,8 @@ const Footer = () => {
     );
   };
 
-  const handleMenuClick = (item) => {
-    const element = document.getElementById(item);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleMenuClick = (path) => {
+    navigate(path);
   };
 
   const containerVariants = {
@@ -108,6 +107,8 @@ const Footer = () => {
         <motion.div className="footer__left" variants={fadeLeft}>
           <motion.div
             className="footer__logo"
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
             whileHover={{ scale: 1.03, y: -4 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
@@ -128,7 +129,7 @@ const Footer = () => {
 
           <motion.p
             variants={itemVariants}
-            onClick={() => handleMenuClick("home")}
+            onClick={() => handleMenuClick("/")}
             whileHover={{ x: 8 }}
             transition={{ duration: 0.25 }}
           >
@@ -137,7 +138,7 @@ const Footer = () => {
 
           <motion.p
             variants={itemVariants}
-            onClick={() => handleMenuClick("services")}
+            onClick={() => handleMenuClick("/domestic-market-expertise")}
             whileHover={{ x: 8 }}
             transition={{ duration: 0.25 }}
           >
@@ -146,7 +147,7 @@ const Footer = () => {
 
           <motion.p
             variants={itemVariants}
-            onClick={() => handleMenuClick("contact")}
+            onClick={() => handleMenuClick("/contact")}
             whileHover={{ x: 8 }}
             transition={{ duration: 0.25 }}
           >

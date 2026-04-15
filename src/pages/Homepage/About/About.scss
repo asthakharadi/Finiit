@@ -10,6 +10,11 @@
   gap: 80px;
   background: #ffffff;
 
+  @media (min-width: 1600px) and (max-width: 2300px) {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
   /* Desktop Large */
   @media (min-width: 1400px) {
     padding: 50px 150px;
@@ -258,7 +263,7 @@
 .about__right {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   max-width: 45%;
 

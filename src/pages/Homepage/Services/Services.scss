@@ -314,6 +314,11 @@
   background: #000;
   width: 100%;
 
+    @media (min-width: 1600px) and (max-width: 2300px) {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
   @media (max-width: 1024px) {
     padding: 70px 60px 80px;
   }
@@ -343,6 +348,8 @@
   color: white;
   font-family: 'Open Sans', sans-serif;
   // margin-left: 60px;
+
+  
 
   @media (max-width: 1024px) {
     font-size: 32px;
