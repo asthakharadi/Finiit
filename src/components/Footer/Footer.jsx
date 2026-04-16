@@ -210,8 +210,14 @@ const Footer = () => {
               Copyright © 2026 Finiit, All Rights Reserved.
             </span>
             <span className="design-line">
-              Design and Developed by TECHORSES
-            </span>
+  Design and Developed by{" "}
+  <span
+    style={{ cursor: "pointer", textDecoration: "underline" }}
+    onClick={() => window.open("https://finiit.com", "_blank")}
+  >
+    TECHORSES
+  </span>
+</span>
           </p>
         </motion.div>
 

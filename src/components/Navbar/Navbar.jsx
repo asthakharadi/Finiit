@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   const handleConsultClick = () => {
-    navigate("/consult");
+    navigate("/contact");
     closeMenu();
   };
 
@@ -102,7 +102,7 @@ const Navbar = () => {
             </span>
 
             <button
-              className={`consult-btn ${isActive("/consult") ? "active" : ""}`}
+              className={`consult-btn ${isActive("/contact") ? "active" : ""}`}
               onClick={handleConsultClick}
             >
               CONSULT NOW
@@ -158,7 +158,7 @@ const Navbar = () => {
             <li>
               <button
                 className={`mobile-consult-btn ${
-                  isActive("/consult") ? "active" : ""
+                  isActive("/contact") ? "active" : ""
                 }`}
                 onClick={handleConsultClick}
               >
