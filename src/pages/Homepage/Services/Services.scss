@@ -1,4 +1,3 @@
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 .services {
@@ -11,64 +10,63 @@
 /* ===== TOP SECTION ===== */
 .services__top {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background: #239a72;
+  padding: 60px 150px;
   width: 100%;
+  background: linear-gradient(to bottom, #000000 0%, #239a72 100%);
 
-   /* Desktop Large */
-   @media (min-width: 1400px) {
-    // padding: 40px;
-    width: 100% !important;
-    padding: 50px 150px;
+  @media (min-width: 1400px) {
+    padding: 60px 150px;
   }
 
-   /* Desktop */
-   @media (max-width: 1200px) {
-    padding: 50px 30px 50px;
-  }
-
-   /* Desktop Small */
-   @media (max-width: 992px) {
-    padding: 50px 20px 50px;
-  }
-
-   /* Tablet */
-   @media (max-width: 768px) {
-    padding: 40px 15px 40px;
-  }
-
-   /* Mobile */
-   @media (max-width: 480px) {
-    padding: 30px 10px 30px;
+  @media (max-width: 1200px) {
+    padding: 55px 40px;
   }
 
   @media (max-width: 1024px) {
-    padding: 40px 20px 40px;
+    padding: 50px 30px;
   }
 
   @media (max-width: 768px) {
-    padding: 70px 20px 50px;
+    padding: 45px 20px;
   }
 
   @media (max-width: 480px) {
-    padding: 40px 15px 40px;
+    padding: 40px 15px;
   }
 }
 
-/* TAG - Roboto Font */
+.services__top-block {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 768px) {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+/* TAG */
 .tag {
   color: #ffffff;
   letter-spacing: 2px;
   font-size: 14px;
   margin-bottom: 15px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
-
-  span {
-    margin-right: 5px;
-  }
 
   @media (max-width: 768px) {
     font-size: 13px;
@@ -81,137 +79,99 @@
   }
 }
 
-/* HEADING - Open Sans Font */
+.services .tag {
+  color: #ffffff;
+}
+
+.services .tag-arrow {
+  color: #ffffff !important;
+  font-size: 30px;
+  margin-right: 8px;
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+    margin-right: 4px;
+  }
+}
+
+/* TOP HEADING */
 .services__top h1 {
   font-size: 42px;
-  margin-bottom: 60px;
+  margin-bottom: 24px;
   line-height: 1.3;
   font-weight: 700;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  color: rgb(0, 0, 0);
   margin-top: 0;
+  color: #ffffff;
   font-family: 'Open Sans', sans-serif;
 
   @media (max-width: 1024px) {
     font-size: 36px;
-    margin-bottom: 50px;
     max-width: 900px;
   }
 
   @media (max-width: 768px) {
     font-size: 30px;
-    margin-bottom: 45px;
     max-width: 700px;
   }
 
   @media (max-width: 576px) {
     font-size: 24px;
-    margin-bottom: 40px;
     line-height: 1.4;
   }
 
   @media (max-width: 480px) {
     font-size: 20px;
+    padding: 0 6px;
+  }
+}
+
+/* TOP TEXT */
+.services__top-text {
+  max-width: 980px;
+  margin: 0 auto 45px;
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    max-width: 860px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 100%;
     margin-bottom: 35px;
-    padding: 0 10px;
-  }
-}
-
-/* SERVICES ITEMS */
-.services__items {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  margin-bottom: 55px;
-
-  @media (max-width: 768px) {
-    gap: 60px;
-    flex-wrap: wrap;
   }
 
   @media (max-width: 576px) {
-    gap: 40px;
-    flex-direction: row;
-    // align-items: center;
-  }
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  p {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: left;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-
-    @media (max-width: 1024px) {
-      font-size: 18px;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 16px;
-    }
-
-    @media (max-width: 576px) {
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 576px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
-}
-
-.icon {
-  width: 70px;
-  height: 70px;
-  border: 2px solid #000000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  transition: all 0.3s ease;
-
-  svg {
-    font-size: 32px;
-    color: #070606;
-  }
-
-  &:hover {
-    border-color: #040505;
-    transform: scale(1.05);
-    background: rgba(29, 191, 115, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    width: 60px;
-    height: 60px;
-
-    svg {
-      font-size: 28px;
-    }
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
   }
 
   @media (max-width: 480px) {
-    width: 55px;
-    height: 55px;
-
-    svg {
-      font-size: 24px;
-    }
+    font-size: 14px;
+    line-height: 1.65;
+    padding: 0 4px;
+    margin-bottom: 28px;
   }
 }
 
-/* EXPLORE BUTTON - Roboto Font */
+/* EXPLORE BUTTON */
 .explore-btn {
   background: #000000;
   border: none;
@@ -314,10 +274,10 @@
   background: #000;
   width: 100%;
 
-    @media (min-width: 1600px) and (max-width: 2300px) {
-  max-width: 1600px;
-  margin: 0 auto;
-}
+  @media (min-width: 1600px) and (max-width: 2300px) {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
 
   @media (max-width: 1024px) {
     padding: 70px 60px 80px;
@@ -336,7 +296,7 @@
   }
 }
 
-/* WHY CHOOSE US Heading - Open Sans Font */
+/* BOTTOM HEADING */
 .services__bottom h2 {
   font-size: 42px;
   margin-bottom: 65px;
@@ -347,9 +307,6 @@
   margin-right: auto;
   color: white;
   font-family: 'Open Sans', sans-serif;
-  // margin-left: 60px;
-
-  
 
   @media (max-width: 1024px) {
     font-size: 32px;
@@ -482,7 +439,7 @@
   }
 }
 
-/* FEATURE TEXT - Roboto Font */
+/* FEATURE TEXT */
 .feature p {
   font-size: 17px;
   color: #e0e0e0;
@@ -505,7 +462,7 @@
   }
 }
 
-/* EXPLORE BUTTON IMAGE */
+/* BUTTON IMAGE */
 .btn-icon-img {
   width: 25px;
   height: 25px;
@@ -523,128 +480,7 @@
   }
 }
 
-/* TAG ARROW ICON */
-.tag-arrow {
-  font-size: 30px;
-  vertical-align: middle;
-  // margin-bottom: -50px;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 12px;
-  }
-}
-
-/* Body default font */
+/* BODY FONT */
 body {
   font-family: 'Roboto', sans-serif;
-}
-
-
-
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  /* --- Sirf Mobile View (Max 576px) ke liye --- */
-  @media (max-width: 576px) {
-    flex-direction: column; /* Icon upar, text niche */
-    text-align: center;
-    gap: 10px;
-  }
-}
-
-.item p {
-  font-size: 20px;
-  font-weight: 600;
-  text-align: left;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-
-  @media (max-width: 1024px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-  }
-
-  /* --- Sirf Mobile View (Max 576px) ke liye --- */
-  @media (max-width: 576px) {
-    font-size: 15px;
-    text-align: center;
-    line-height: 1.2;
-    /* Isse text force hokar niche ki line mein aa jayega */
-    max-width: 130px; 
-    margin: 0 auto;
-  }
-}
-
-/* Update TAG ARROW ICON section */
-.tag-arrow {
-  font-size: 30px;
-  vertical-align: middle;
-  margin-right: 6px;
-  display: inline-block;
-  color: white;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    margin-right: 5px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-    margin-right: 4px;
-  }
-}
-
-/* Update TAG style */
-.tag {
-  color: #ffffff;
-  letter-spacing: 2px;
-  font-size: 14px;
-  margin-bottom: 15px;
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-    letter-spacing: 1.5px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-}
-
-
-/* Sirf Services section ke andar ke tag-arrow ko white karo */
-.services .tag-arrow {
-  color: #ffffff !important;
-  font-size: 30px;
-  margin-right: 8px;
-  display: inline-block;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    margin-right: 6px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 20px;
-    margin-right: 4px;
-  }
-}
-
-.services .tag {
-  color: #ffffff;
 }

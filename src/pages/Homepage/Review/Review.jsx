@@ -3,6 +3,11 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import "./Review.scss";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
+// apni image ka path yaha lagao
+import profileImg1 from "../../../assets/Review/profile1.png";
+import profileImg2 from "../../../assets/Review/profile2.png";
+import profileImg3 from "../../../assets/Review/profile3.png";
+
 const Review = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -18,18 +23,21 @@ const Review = () => {
     {
       name: "PAVAN JOSHI",
       position: "CEO",
-      text: "At Finiit, we combine technology, finance, and innovation to simplify the way businesses operate. Whether you're a startup or an established enterprise, we help you optimize processes, stay compliant, and grow faster with smart digital solutions."
+      image: profileImg1,
+      text: "At Finiit, we combine technology, finance, and innovation to simplify the way businesses operate. Whether you're a startup or an established enterprise, we help you optimize processes, stay compliant, and grow faster with smart digital solutions.",
     },
     {
       name: "RAHUL SHARMA",
       position: "CTO",
-      text: "Finiit has transformed our business operations completely. Their innovative solutions and dedicated support have helped us scale new heights. Highly recommended for any business looking to digitize their operations."
+      image: profileImg2,
+      text: "Finiit has transformed our business operations completely. Their innovative solutions and dedicated support have helped us scale new heights. Highly recommended for any business looking to digitize their operations.",
     },
     {
       name: "NEHA GUPTA",
       position: "Director",
-      text: "The team at Finiit is exceptional. They understand our needs perfectly and deliver beyond expectations. Their financial and IT solutions have streamlined our entire workflow."
-    }
+      image: profileImg3,
+      text: "The team at Finiit is exceptional. They understand our needs perfectly and deliver beyond expectations. Their financial and IT solutions have streamlined our entire workflow.",
+    },
   ];
 
   useEffect(() => {
@@ -37,17 +45,14 @@ const Review = () => {
       const width = window.innerWidth;
       setIsMobile(width <= 576);
       setIsTablet(width > 576 && width <= 992);
-      
-      // Reset index when screen size changes
       setCurrentIndex(0);
     };
-    
+
     checkView();
-    window.addEventListener('resize', checkView);
-    return () => window.removeEventListener('resize', checkView);
+    window.addEventListener("resize", checkView);
+    return () => window.removeEventListener("resize", checkView);
   }, []);
 
-  // AUTO-SLIDE: Mobile aur Tablet dono ke liye
   useEffect(() => {
     if (isMobile || isTablet) {
       const interval = setInterval(() => {
@@ -61,18 +66,15 @@ const Review = () => {
     if (isMobile) {
       return [reviews[currentIndex]];
     } else if (isTablet) {
-      // Tablet: Show 2 cards at a time, but based on currentIndex
       const firstIndex = currentIndex;
       const secondIndex = (currentIndex + 1) % reviews.length;
       return [reviews[firstIndex], reviews[secondIndex]];
     }
-    // Desktop: Saare cards
     return reviews;
   };
 
   const visibleCards = getVisibleCards();
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -222,10 +224,8 @@ const Review = () => {
         What our clients say about working with Finiit.
       </motion.h2>
 
-      {/* Cards Container */}
       <motion.div className="review__cards">
         {!isMobile && !isTablet ? (
-          // Desktop View - Grid layout with all cards
           visibleCards.map((review, idx) => (
             <motion.div
               className="card"
@@ -241,12 +241,16 @@ const Review = () => {
                   className="avatar"
                   variants={avatarVariants}
                   whileHover={{ scale: 1.1, rotate: 10 }}
-                />
+                >
+                  <img src={review.image} alt={review.name} />
+                </motion.div>
+
                 <div>
                   <h4>{review.name}</h4>
                   <span>{review.position}</span>
                 </div>
               </div>
+
               <motion.p
                 className="card__text"
                 initial={{ opacity: 0 }}
@@ -255,6 +259,7 @@ const Review = () => {
               >
                 {review.text}
               </motion.p>
+
               <motion.div
                 className="stars"
                 variants={starsVariants}
@@ -265,7 +270,6 @@ const Review = () => {
             </motion.div>
           ))
         ) : (
-          // Mobile & Tablet View - Carousel with slide animations
           <AnimatePresence mode="wait" custom={isTablet}>
             <motion.div
               key={currentIndex}
@@ -276,31 +280,34 @@ const Review = () => {
               exit="exit"
               className="cards-wrapper"
               style={{
-                display: 'flex',
-                gap: '20px',
-                justifyContent: 'center'
+                display: "flex",
+                gap: "20px",
+                justifyContent: "center",
               }}
             >
               {visibleCards.map((review, idx) => (
-                <div
-                  className="card"
-                  key={idx}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <div className="card" key={idx}>
                   <div className="card__top">
                     <motion.div
                       className="avatar"
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.5, type: "spring", delay: idx * 0.1 }}
+                      transition={{
+                        duration: 0.5,
+                        type: "spring",
+                        delay: idx * 0.1,
+                      }}
                       whileHover={{ scale: 1.1, rotate: 10 }}
-                    />
+                    >
+                      <img src={review.image} alt={review.name} />
+                    </motion.div>
+
                     <div>
                       <h4>{review.name}</h4>
                       <span>{review.position}</span>
                     </div>
                   </div>
+
                   <motion.p
                     className="card__text"
                     initial={{ opacity: 0, x: 50 }}
@@ -309,6 +316,7 @@ const Review = () => {
                   >
                     {review.text}
                   </motion.p>
+
                   <motion.div
                     className="stars"
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -324,8 +332,7 @@ const Review = () => {
           </AnimatePresence>
         )}
       </motion.div>
-      
-      {/* Dots - Mobile aur Tablet dono mein dikhenge */}
+
       {(isMobile || isTablet) && (
         <motion.div
           className="mobile-dots"
@@ -336,7 +343,7 @@ const Review = () => {
           {reviews.map((_, index) => (
             <motion.span
               key={index}
-              className={`dot ${currentIndex === index ? 'active' : ''}`}
+              className={`dot ${currentIndex === index ? "active" : ""}`}
               onClick={() => setCurrentIndex(index)}
               variants={dotVariants}
               initial="hidden"

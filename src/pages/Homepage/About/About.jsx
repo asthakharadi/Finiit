@@ -119,15 +119,18 @@ const About = () => {
       className="about"
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
     >
       {/* LEFT */}
       <motion.div className="about__left" variants={leftVariants}>
-        <motion.p className="about__tag">
+        <motion.p className="about__tag" variants={fadeInUp}>
           <motion.span
             variants={arrowVariants}
             initial="hidden"
-            animate={["visible", "animate"]}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.8 }}
+            animate="animate"
             style={{ display: "inline-flex", alignItems: "center" }}
           >
             <MdKeyboardDoubleArrowUp className="tag-arrow" />
@@ -141,19 +144,22 @@ const About = () => {
         </motion.h1>
 
         <motion.p className="about__desc" variants={fadeInUp}>
-          At Finiit, we combine technology, finance, and innovation to simplify the way businesses operate. Whether you're a startup or an established enterprise, we help you optimize processes, stay compliant, and grow faster with smart digital solutions.
+          At Finiit, we combine technology, finance, and innovation to simplify
+          the way businesses operate. Whether you're a startup or an established
+          enterprise, we help you optimize processes, stay compliant, and grow
+          faster with smart digital solutions.
         </motion.p>
 
         <motion.p className="about__desc" variants={fadeInUp}>
-          Our mission is to streamline your business operations by blending innovative IT solutions, custom software development, and reliable financial services - whether you operate locally or globally.
+          Our mission is to streamline your business operations by blending
+          innovative IT solutions, custom software development, and reliable
+          financial services - whether you operate locally or globally.
         </motion.p>
 
         {/* Button Left Side */}
         <motion.button
           className="about__btn"
           variants={buttonVariants}
-          initial="hidden"
-          animate="visible"
           whileHover="hover"
           whileTap="tap"
         >
@@ -175,8 +181,6 @@ const About = () => {
           alt="about"
           className="about-image"
           variants={imageVariants}
-          initial="hidden"
-          animate="visible"
         />
       </motion.div>
     </motion.div>

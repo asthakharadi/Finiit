@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "./ContactUs.scss";
 
 // top row images
@@ -110,6 +111,8 @@ const arrowVariants = {
 };
 
 const ContactUs = () => {
+  const navigate = useNavigate();
+
   const people = [
     { id: 1, img: img1, cls: "card-1" },
     { id: 2, img: img2, cls: "card-2 active" },
@@ -187,6 +190,7 @@ const ContactUs = () => {
 
           <motion.button
             className="contact-us__btn"
+            onClick={() => navigate("/contact")}
             variants={buttonVariants}
             initial="hidden"
             whileInView="visible"
@@ -198,6 +202,7 @@ const ContactUs = () => {
             <motion.img
               src={arrowSvg}
               alt="arrow"
+              className="contact-us__arrow"
               variants={arrowVariants}
               whileHover="hover"
             />

@@ -1,13 +1,18 @@
-// Services.js - Professional Framer Motion with same animation style
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "./Services.scss";
-import { FaHome, FaGlobe, FaCogs, FaUsers, FaStore, FaShieldAlt } from "react-icons/fa";
+import { FaCogs, FaUsers, FaStore, FaShieldAlt } from "react-icons/fa";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import exploreArrow from "../../../assets/Hero/arrow.png";
 
 const Services = () => {
-  // Container animation - stagger children
+  const navigate = useNavigate();
+
+  const handleExploreClick = () => {
+    navigate("/domestic-market-expertise");
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -19,7 +24,6 @@ const Services = () => {
     },
   };
 
-  // Fade in up for text elements
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -32,7 +36,6 @@ const Services = () => {
     },
   };
 
-  // Fade in left for marquee
   const fadeInLeft = {
     hidden: { opacity: 0, x: -80 },
     visible: {
@@ -45,7 +48,6 @@ const Services = () => {
     },
   };
 
-  // Arrow icon animation - up and down movement
   const arrowVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: {
@@ -65,29 +67,6 @@ const Services = () => {
     },
   };
 
-  // Icon pop animation
-  const iconPop = {
-    hidden: { opacity: 0, scale: 0, rotate: -180 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 0.5,
-        type: "spring",
-        stiffness: 200,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      rotate: 5,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  // Feature box icon animation
   const featureIconPop = {
     hidden: { opacity: 0, scale: 0, rotate: -180 },
     visible: {
@@ -109,7 +88,6 @@ const Services = () => {
     },
   };
 
-  // Button animation
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -132,7 +110,6 @@ const Services = () => {
     },
   };
 
-  // Arrow hover animation
   const arrowHover = {
     hover: {
       x: 8,
@@ -144,19 +121,6 @@ const Services = () => {
     },
   };
 
-  // Stagger for service items
-  const staggerItems = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  // Stagger for features
   const staggerFeatures = {
     hidden: { opacity: 0 },
     visible: {
@@ -168,20 +132,6 @@ const Services = () => {
     },
   };
 
-  // Service item animation
-  const serviceItem = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  // Feature item animation
   const featureItem = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -207,74 +157,80 @@ const Services = () => {
         className="services__top"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
       >
-        <motion.p className="tag" variants={fadeInUp}>
-          <motion.span
-            variants={arrowVariants}
-            initial="hidden"
-            animate={["visible", "animate"]}
-            style={{ display: "inline-flex", alignItems: "center" }}
-          >
-            <MdKeyboardDoubleArrowUp className="tag-arrow" />
-          </motion.span>
-          WHAT WE OFFER
-        </motion.p>
-
-        <motion.h1 variants={fadeInUp}>
-          From financial compliance to business automation, we offer end-to-end services tailored to your needs.
-        </motion.h1>
-
-        <motion.div
-          className="services__items"
-          variants={staggerItems}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div className="item" variants={serviceItem}>
-            <motion.div
-              className="icon"
-              variants={iconPop}
+        {/* FIRST SAME UI */}
+        <div className="services__top-block">
+          <motion.p className="tag" variants={fadeInUp}>
+            <motion.span
+              variants={arrowVariants}
               initial="hidden"
-              animate="visible"
-              whileHover="hover"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.8 }}
+              animate="animate"
+              style={{ display: "inline-flex", alignItems: "center" }}
             >
-              <FaHome />
-            </motion.div>
-            <p>Domestic Market Services</p>
-          </motion.div>
+              <MdKeyboardDoubleArrowUp className="tag-arrow" />
+            </motion.span>
+            WHAT WE OFFER
+          </motion.p>
 
-          <motion.div className="item" variants={serviceItem}>
-            <motion.div
-              className="icon"
-              variants={iconPop}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
-              <FaGlobe />
-            </motion.div>
-            <p>Global Services</p>
-          </motion.div>
-        </motion.div>
+          <motion.h1 variants={fadeInUp}>
+            From financial compliance to business automation, we offer end-to-end
+            services tailored to your needs.
+          </motion.h1>
 
-        <motion.button
-          className="explore-btn"
-          variants={buttonVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          whileTap="tap"
-        >
-          EXPLORE SERVICES
-          <motion.img
-            src={exploreArrow}
-            alt="arrow"
-            className="btn-icon-img"
-            variants={arrowHover}
+          <motion.p className="services__top-text" variants={fadeInUp}>
+            From compliance to accounting and financial management, we take care
+            of everything from start to finish behind the scenes, giving you the
+            clarity and confidence to focus on growing and scaling your business.
+          </motion.p>
+
+          <motion.button
+            className="explore-btn"
+            variants={buttonVariants}
             whileHover="hover"
-          />
-        </motion.button>
+            whileTap="tap"
+            onClick={handleExploreClick}
+          >
+            EXPLORE SERVICE
+            <motion.img
+              src={exploreArrow}
+              alt="arrow"
+              className="btn-icon-img"
+              variants={arrowHover}
+              whileHover="hover"
+            />
+          </motion.button>
+        </div>
+
+        {/* SECOND SAME UI */}
+        <div className="services__top-block">
+          <motion.p className="tag" variants={fadeInUp}>
+            <motion.span
+              variants={arrowVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.8 }}
+              animate="animate"
+              style={{ display: "inline-flex", alignItems: "center" }}
+            >
+              <MdKeyboardDoubleArrowUp className="tag-arrow" />
+            </motion.span>
+            INDUSTRIAL TRAINING
+          </motion.p>
+
+          <motion.h1 variants={fadeInUp}>
+            Empowering future professionals through hands-on training
+          </motion.h1>
+
+          <motion.p className="services__top-text" variants={fadeInUp}>
+            With guided mentorship and real-world projects, we help you gain
+            practical experience, sharpen your skills, and build a strong
+            foundation for your professional journey.
+          </motion.p>
+        </div>
       </motion.div>
 
       {/* MARQUEE SECTION */}
@@ -282,13 +238,16 @@ const Services = () => {
         className="marquee"
         variants={fadeInLeft}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
       >
         <div className="marquee__content">
-          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
+          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
+          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
         </div>
         <div className="marquee__content">
-          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
+          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
+          TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE · TECHNOLOGY · FINANCE ·
         </div>
       </motion.div>
 
@@ -297,13 +256,16 @@ const Services = () => {
         className="services__bottom"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
       >
         <motion.p className="tag" variants={fadeInUp}>
           <motion.span
             variants={arrowVariants}
             initial="hidden"
-            animate={["visible", "animate"]}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.8 }}
+            animate="animate"
             style={{ display: "inline-flex", alignItems: "center" }}
           >
             <MdKeyboardDoubleArrowUp className="tag-arrow" />
@@ -312,27 +274,17 @@ const Services = () => {
         </motion.p>
 
         <motion.h2 variants={fadeInUp}>
-          Because we blend technology with financial expertise, ensuring your business runs smarter and safer.
+          Because we blend technology with financial expertise, ensuring your
+          business runs smarter and safer.
         </motion.h2>
 
-        <motion.div
-          className="features"
-          variants={staggerFeatures}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="features" variants={staggerFeatures}>
           <motion.div
             className="feature"
             variants={featureItem}
             whileHover="hover"
           >
-            <motion.div
-              className="box"
-              variants={featureIconPop}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
+            <motion.div className="box" variants={featureIconPop} whileHover="hover">
               <FaCogs />
             </motion.div>
             <p>
@@ -346,13 +298,7 @@ const Services = () => {
             variants={featureItem}
             whileHover="hover"
           >
-            <motion.div
-              className="box"
-              variants={featureIconPop}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
+            <motion.div className="box" variants={featureIconPop} whileHover="hover">
               <FaUsers />
             </motion.div>
             <p>
@@ -366,13 +312,7 @@ const Services = () => {
             variants={featureItem}
             whileHover="hover"
           >
-            <motion.div
-              className="box"
-              variants={featureIconPop}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
+            <motion.div className="box" variants={featureIconPop} whileHover="hover">
               <FaStore />
             </motion.div>
             <p>
@@ -386,13 +326,7 @@ const Services = () => {
             variants={featureItem}
             whileHover="hover"
           >
-            <motion.div
-              className="box"
-              variants={featureIconPop}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
+            <motion.div className="box" variants={featureIconPop} whileHover="hover">
               <FaShieldAlt />
             </motion.div>
             <p>
