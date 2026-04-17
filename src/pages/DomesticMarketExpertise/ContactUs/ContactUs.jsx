@@ -4,19 +4,19 @@ import { useNavigate } from "react-router-dom";
 import "./ContactUs.scss";
 
 // top row images
-import img1 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img2 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img3 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img4 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img5 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img6 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img7 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img8 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img9 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img10 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img11 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img12 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
-import img13 from "../../../assets/DomesticMarketExpertise/contactus/card.png";
+import img1 from "../../../assets/DomesticMarketExpertise/contactus/card1.png";
+import img2 from "../../../assets/DomesticMarketExpertise/contactus/card2.png";
+import img3 from "../../../assets/DomesticMarketExpertise/contactus/card3.png";
+import img4 from "../../../assets/DomesticMarketExpertise/contactus/card4.png";
+import img5 from "../../../assets/DomesticMarketExpertise/contactus/card5.png";
+import img6 from "../../../assets/DomesticMarketExpertise/contactus/card6.png";
+import img7 from "../../../assets/DomesticMarketExpertise/contactus/card7.png";
+import img8 from "../../../assets/DomesticMarketExpertise/contactus/card8.png";
+import img9 from "../../../assets/DomesticMarketExpertise/contactus/card9.png";
+import img10 from "../../../assets/DomesticMarketExpertise/contactus/card10.png";
+import img11 from "../../../assets/DomesticMarketExpertise/contactus/card11.png";
+import img12 from "../../../assets/DomesticMarketExpertise/contactus/card12.png";
+import img13 from "../../../assets/DomesticMarketExpertise/contactus/card13.png";
 import arrowSvg from "../../../assets/Hero/arrow.png";
 
 // Animation variants

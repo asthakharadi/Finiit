@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./ContactUS.scss";
 import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
@@ -7,28 +7,53 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const ContactUS = () => {
-  // Validation schema
-  const validationSchema = Yup.object({
-    fullName: Yup.string()
-      .min(3, "Name must be at least 3 characters")
-      .max(50, "Name cannot exceed 50 characters")
-      .required("Full name is required"),
-    phoneNumber: Yup.string()
-      .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits")
-      .required("Phone number is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email address is required"),
-    serviceType: Yup.string()
-      .notOneOf([""], "Please select a service type")
-      .required("Service type is required"),
-    message: Yup.string()
-      .min(10, "Message must be at least 10 characters")
-      .max(500, "Message cannot exceed 500 characters")
-      .required("Message is required"),
-  });
+const serviceOptions = [
+  "GST REGISTRATION",
+  "GST FILINGS",
+  "GST RECONCILIATION",
+  "UDYAM CERTIFICATION",
+  "BOOKKEEPING",
+  "ACCOUNTING & RECONCILIATION",
+  "SALES INVOICE, EINVOICE OR EWAY BILL GENERATION",
+  "CUSTOMER QUERY MANAGEMENT",
+  "AUDITING & COMPLIANCE",
+  "INCOME TAX FILINGS",
+  "MUTUAL FUNDS & SIP ADVISORY",
+  "LOAN ADVISORY",
+];
 
+const ContactUS = () => {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const validationSchema = Yup.object({
+  fullName: Yup.string()
+    .min(3, "Name must be at least 3 characters")
+    .max(50, "Name cannot exceed 50 characters")
+    .required("Full name is required"),
+
+  phoneNumber: Yup.string()
+    .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits")
+    .required("Phone number is required"),
+
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email address is required"),
+
+  // ❌ required hata diya (Service type error nahi aayega)
+  serviceType: Yup.string(),
+
+  // ❌ "Message is required" hata diya
+  // ✅ sirf typing pe validation
+  message: Yup.string()
+    .test(
+      "message-length",
+      "Message must be at least 10 characters",
+      (value) =>
+        !value || value.trim().length === 0 || value.trim().length >= 10
+    )
+    .max(500, "Message cannot exceed 500 characters"),
+});
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -37,13 +62,30 @@ const ContactUS = () => {
       serviceType: "",
       message: "",
     },
-    validationSchema: validationSchema,
+    validationSchema,
     onSubmit: (values, { resetForm }) => {
       console.log("Form submitted:", values);
       alert("Thank you! We will get back to you soon.");
       resetForm();
+      setOpen(false);
     },
   });
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+        if (!formik.touched.serviceType) {
+          formik.setFieldTouched("serviceType", true);
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [formik]);
 
   const arrowVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -183,7 +225,7 @@ const ContactUS = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             className="contactus__location"
             variants={fadeUp}
             initial="hidden"
@@ -199,7 +241,7 @@ const ContactUS = () => {
               <br />
               Gujarat 390001
             </p>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             className="contactus__social"
@@ -276,7 +318,9 @@ const ContactUS = () => {
                 whileInView="visible"
                 custom={0.35}
                 viewport={{ once: true, amount: 0.2 }}
-                className={formik.touched.fullName && formik.errors.fullName ? "error" : ""}
+                className={
+                  formik.touched.fullName && formik.errors.fullName ? "error" : ""
+                }
               />
               {formik.touched.fullName && formik.errors.fullName && (
                 <div className="error-message">{formik.errors.fullName}</div>
@@ -296,7 +340,11 @@ const ContactUS = () => {
                 whileInView="visible"
                 custom={0.4}
                 viewport={{ once: true, amount: 0.2 }}
-                className={formik.touched.phoneNumber && formik.errors.phoneNumber ? "error" : ""}
+                className={
+                  formik.touched.phoneNumber && formik.errors.phoneNumber
+                    ? "error"
+                    : ""
+                }
               />
               {formik.touched.phoneNumber && formik.errors.phoneNumber && (
                 <div className="error-message">{formik.errors.phoneNumber}</div>
@@ -316,7 +364,9 @@ const ContactUS = () => {
                 whileInView="visible"
                 custom={0.45}
                 viewport={{ once: true, amount: 0.2 }}
-                className={formik.touched.email && formik.errors.email ? "error" : ""}
+                className={
+                  formik.touched.email && formik.errors.email ? "error" : ""
+                }
               />
               {formik.touched.email && formik.errors.email && (
                 <div className="error-message">{formik.errors.email}</div>
@@ -324,23 +374,54 @@ const ContactUS = () => {
             </div>
 
             <div className="form-group">
-              <motion.select
-                name="serviceType"
-                value={formik.values.serviceType}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+              <motion.div
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
                 custom={0.5}
                 viewport={{ once: true, amount: 0.2 }}
-                className={formik.touched.serviceType && formik.errors.serviceType ? "error" : ""}
               >
-                <option value="">Select Service Type</option>
-                <option value="web-development">Web Development</option>
-                <option value="app-development">App Development</option>
-                <option value="ui-ux-design">UI/UX Design</option>
-              </motion.select>
+                <div className="custom-select" ref={dropdownRef}>
+                  <div
+                    className={`select-box ${
+                      formik.touched.serviceType && formik.errors.serviceType
+                        ? "error"
+                        : ""
+                    }`}
+                    onClick={() => setOpen((prev) => !prev)}
+                    onBlur={() => formik.setFieldTouched("serviceType", true)}
+                    tabIndex={0}
+                  >
+                    <span>
+                      {formik.values.serviceType || "Select Service Type"}
+                    </span>
+                    <span className={`select-arrow ${open ? "open" : ""}`}>
+                      ▾
+                    </span>
+                  </div>
+
+                  {open && (
+                    <div className="dropdown">
+                      {serviceOptions.map((item, index) => (
+                        <div
+                          key={index}
+                          className={`option ${
+                            formik.values.serviceType === item ? "selected" : ""
+                          }`}
+                          onClick={() => {
+                            formik.setFieldValue("serviceType", item);
+                            formik.setFieldTouched("serviceType", true);
+                            setOpen(false);
+                          }}
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+
               {formik.touched.serviceType && formik.errors.serviceType && (
                 <div className="error-message">{formik.errors.serviceType}</div>
               )}
@@ -358,7 +439,9 @@ const ContactUS = () => {
                 whileInView="visible"
                 custom={0.55}
                 viewport={{ once: true, amount: 0.2 }}
-                className={formik.touched.message && formik.errors.message ? "error" : ""}
+                className={
+                  formik.touched.message && formik.errors.message ? "error" : ""
+                }
               ></motion.textarea>
               {formik.touched.message && formik.errors.message && (
                 <div className="error-message">{formik.errors.message}</div>

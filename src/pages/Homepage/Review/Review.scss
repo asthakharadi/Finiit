@@ -99,13 +99,14 @@
     font-family: 'Roboto', sans-serif;
     flex-grow: 1;
     color: #0c0b0b;
+    text-align: justify;
   }
-
-  .stars {
-    color: #ffb400;
-    font-size: 18px;
-    margin-top: auto;
-  }
+.stars {
+  display: flex;
+  gap: 6px;
+  font-size: 18px;
+  color: #ffb400;
+}
 }
 
 .mobile-dots {

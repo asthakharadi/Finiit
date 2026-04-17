@@ -377,3 +377,66 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.footer__tagline {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #dcdcdc;
+  font-family: 'Roboto', sans-serif;
+  max-width: 260px;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: -40px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 12px auto 0;
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    margin-bottom: 40px;
+    margin-top: -40px;
+  }
+}
+
+
+/* ✅ MOBILE (0 – 768px) */
+@media (max-width: 768px) {
+  .footer__bottom {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer__icons {
+    order: 1;   // upar
+  }
+
+  .footer__copyright {
+    order: 2;   // niche
+  }
+}
+
+
+/* ✅ TABLET (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer__bottom {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__icons {
+    order: 1;   // LEFT
+    justify-content: flex-start;
+  }
+
+  .footer__copyright {
+    order: 2;   // RIGHT
+    text-align: right;
+  }
+}

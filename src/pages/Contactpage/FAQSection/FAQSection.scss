@@ -343,7 +343,11 @@
   justify-content: center;
 
   .tag-arrow {
-    font-size: 28px;
+    font-size: 30px;
     color: #239a72 !important;
+
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
   }
 }

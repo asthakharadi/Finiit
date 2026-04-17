@@ -10,7 +10,7 @@ const Contact = () => {
       <Hero />
       <ContactUS />
       <FAQSection />
-      <ImageSection />
+      {/* <ImageSection /> */}
     </div>
   )
 }

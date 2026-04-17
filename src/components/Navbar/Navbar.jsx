@@ -114,10 +114,16 @@ const Navbar = () => {
           <button
             className={`mobile-menu-btn ${isMenuOpen ? "active" : ""}`}
             onClick={toggleMenu}
+            aria-label="Toggle menu"
+            type="button"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <div className="background">
+              <div className="menu__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
           </button>
         )}
       </div>

@@ -40,10 +40,13 @@
   &__card {
     position: absolute;
     background: #fff;
-    border: 4px solid #239a72;
+    border: none;
     overflow: hidden;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    outline: 1px solid #239a72;
+
+  box-shadow: 0 0 12px #239a72;
 
     img {
       width: 100%;
@@ -386,8 +389,8 @@
     }
 
     &__btn {
-      min-width: 170px;
-      height: 48px;
+      min-width: 100px;
+      height: 35px;
       font-size: 12px;
       gap: 10px;
       padding: 0 20px;

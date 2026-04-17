@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import "./Review.scss";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
+import { IoStar } from "react-icons/io5"; // ✅ UPDATED
 
 // apni image ka path yaha lagao
 import profileImg1 from "../../../assets/Review/profile1.png";
@@ -260,12 +261,13 @@ const Review = () => {
                 {review.text}
               </motion.p>
 
+              {/* ⭐ UPDATED */}
               <motion.div
                 className="stars"
                 variants={starsVariants}
                 whileHover={{ scale: 1.1 }}
               >
-                ⭐ ⭐ ⭐ ⭐ ⭐
+                <IoStar /><IoStar /><IoStar /><IoStar /><IoStar />
               </motion.div>
             </motion.div>
           ))
@@ -308,23 +310,13 @@ const Review = () => {
                     </div>
                   </div>
 
-                  <motion.p
-                    className="card__text"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  >
+                  <motion.p className="card__text">
                     {review.text}
                   </motion.p>
 
-                  <motion.div
-                    className="stars"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    ⭐ ⭐ ⭐ ⭐ ⭐
+                  {/* ⭐ UPDATED */}
+                  <motion.div className="stars">
+                    <IoStar /><IoStar /><IoStar /><IoStar /><IoStar />
                   </motion.div>
                 </div>
               ))}
@@ -334,22 +326,12 @@ const Review = () => {
       </motion.div>
 
       {(isMobile || isTablet) && (
-        <motion.div
-          className="mobile-dots"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
+        <motion.div className="mobile-dots">
           {reviews.map((_, index) => (
             <motion.span
               key={index}
               className={`dot ${currentIndex === index ? "active" : ""}`}
               onClick={() => setCurrentIndex(index)}
-              variants={dotVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-              transition={{ delay: index * 0.05 }}
             />
           ))}
         </motion.div>

@@ -6,7 +6,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
   FaPhoneAlt,
-  FaMapMarkerAlt,
+  FaEnvelope, // ✅ NEW ICON
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -19,11 +19,9 @@ const Footer = () => {
     window.location.href = "tel:+919099300717";
   };
 
-  const handleLocationClick = () => {
-    window.open(
-      "https://www.google.com/maps?q=Pankaj%20Jewellers%2C%20MG%20Road%20Chokshi%20Bazar%2C%20nr.%20bus%20stand%2C%20Mandvi%2C%20Vadodara%2C%20Gujarat%20390001",
-      "_blank"
-    );
+  // ✅ EMAIL FUNCTION
+  const handleEmailClick = () => {
+    window.location.href = "mailto:info@finiit.com";
   };
 
   const handleMenuClick = (path) => {
@@ -103,27 +101,23 @@ const Footer = () => {
       variants={containerVariants}
     >
       <motion.div className="footer__wrapper" variants={containerVariants}>
-        {/* LEFT SECTION - Logo */}
+        
+        {/* LEFT SECTION */}
         <motion.div className="footer__left" variants={fadeLeft}>
           <motion.div
             className="footer__logo"
             onClick={() => navigate("/")}
             style={{ cursor: "pointer" }}
-            whileHover={{ scale: 1.03, y: -4 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <motion.img
-              src={logo}
-              alt="Finiit"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            />
+            <motion.img src={logo} alt="Finiit" />
+
+            <motion.p className="footer__tagline">
+              Smart solutions for compliance and growth. Reliable. Simple. Effective.
+            </motion.p>
           </motion.div>
         </motion.div>
 
-        {/* CENTER SECTION - MENU */}
+        {/* CENTER SECTION */}
         <motion.div className="footer__center" variants={fadeUp}>
           <motion.h3 variants={itemVariants}>MENU</motion.h3>
 
@@ -131,7 +125,6 @@ const Footer = () => {
             variants={itemVariants}
             onClick={() => handleMenuClick("/")}
             whileHover={{ x: 8 }}
-            transition={{ duration: 0.25 }}
           >
             Home
           </motion.p>
@@ -140,7 +133,6 @@ const Footer = () => {
             variants={itemVariants}
             onClick={() => handleMenuClick("/domestic-market-expertise")}
             whileHover={{ x: 8 }}
-            transition={{ duration: 0.25 }}
           >
             Services
           </motion.p>
@@ -149,21 +141,21 @@ const Footer = () => {
             variants={itemVariants}
             onClick={() => handleMenuClick("/contact")}
             whileHover={{ x: 8 }}
-            transition={{ duration: 0.25 }}
           >
             Contact
           </motion.p>
         </motion.div>
 
-        {/* RIGHT SECTION - Contact & Location */}
+        {/* RIGHT SECTION */}
         <motion.div className="footer__right" variants={fadeRight}>
+          
+          {/* PHONE */}
           <motion.div
             className="footer__info"
             onClick={handlePhoneClick}
             style={{ cursor: "pointer" }}
             variants={itemVariants}
             whileHover={{ x: 6 }}
-            transition={{ duration: 0.25 }}
           >
             <motion.span whileHover={{ scale: 1.08 }}>
               <FaPhoneAlt />
@@ -171,66 +163,29 @@ const Footer = () => {
             <span>+91 9099300717</span>
           </motion.div>
 
+          {/* ✅ EMAIL (LOCATION REMOVED) */}
           <motion.div
             className="footer__info"
-            onClick={handleLocationClick}
+            onClick={handleEmailClick}
             style={{ cursor: "pointer" }}
             variants={itemVariants}
             whileHover={{ x: 6 }}
-            transition={{ duration: 0.25 }}
           >
             <motion.span whileHover={{ scale: 1.08 }}>
-              <FaMapMarkerAlt />
+              <FaEnvelope />
             </motion.span>
-            <span>
-              Pankaj Jewellers, MG Road Chokshi Bazar, nr. bus stand, Mandvi,
-              Vadodara, Gujarat 390001
-            </span>
+            <span>info@finiit.com</span>
           </motion.div>
+
         </motion.div>
       </motion.div>
 
-      {/* Copyright and Social Icons */}
-      <motion.div
-        className="footer__bottom"
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-      >
-        <motion.div
-          className="footer__copyright"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-        >
-          <p className="copyright-text">
-            <span className="copyright-line">
-              Copyright © 2026 Finiit, All Rights Reserved.
-            </span>
-            <span className="design-line">
-  Design and Developed by{" "}
-  <span
-    style={{ cursor: "pointer", textDecoration: "underline" }}
-    onClick={() => window.open("https://finiit.com", "_blank")}
-  >
-    TECHORSES
-  </span>
-</span>
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="footer__icons"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
+      {/* BOTTOM */}
+      <motion.div className="footer__bottom">
+        
+        <motion.div className="footer__icons">
           <motion.div
             whileHover={iconHover}
-            whileTap={{ scale: 0.95 }}
             onClick={() => window.open("https://www.instagram.com", "_blank")}
           >
             <FaInstagram />
@@ -238,7 +193,6 @@ const Footer = () => {
 
           <motion.div
             whileHover={iconHover}
-            whileTap={{ scale: 0.95 }}
             onClick={() => window.open("https://www.facebook.com", "_blank")}
           >
             <FaFacebookF />
@@ -246,7 +200,6 @@ const Footer = () => {
 
           <motion.div
             whileHover={iconHover}
-            whileTap={{ scale: 0.95 }}
             onClick={() => window.open("https://www.linkedin.com", "_blank")}
           >
             <FaLinkedinIn />
@@ -254,12 +207,29 @@ const Footer = () => {
 
           <motion.div
             whileHover={iconHover}
-            whileTap={{ scale: 0.95 }}
             onClick={() => window.open("https://www.youtube.com", "_blank")}
           >
             <FaYoutube />
           </motion.div>
         </motion.div>
+
+        <motion.div className="footer__copyright">
+          <p className="copyright-text">
+            <span className="copyright-line">
+              Copyright © 2026 Finiit, All Rights Reserved.
+            </span>
+            <span className="design-line">
+              Design and Developed by{" "}
+              <span
+                style={{ cursor: "pointer", textDecoration: "underline" }}
+                onClick={() => window.open("https://finiit.com", "_blank")}
+              >
+                TECHORSES
+              </span>
+            </span>
+          </p>
+        </motion.div>
+
       </motion.div>
     </motion.footer>
   );

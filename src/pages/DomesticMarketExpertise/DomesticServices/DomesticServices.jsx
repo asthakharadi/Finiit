@@ -5,22 +5,82 @@ import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { HiMiniArrowLongRight, HiMiniArrowLongLeft } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 
-import cardImg from "../../../assets/DomesticMarketExpertise/gst.png";
+import img1 from "../../../assets/DomesticMarketExpertise/gstregistration.png";
+import img2 from "../../../assets/DomesticMarketExpertise/gstfiling.png";
+import img3 from "../../../assets/DomesticMarketExpertise/gstreconciliation.png";
+import img4 from "../../../assets/DomesticMarketExpertise/udayam.png";
+import img5 from "../../../assets/DomesticMarketExpertise/bookkeeping.png";
+import img6 from "../../../assets/DomesticMarketExpertise/accounting.png";
+import img7 from "../../../assets/DomesticMarketExpertise/salesinvoice.png";
+import img8 from "../../../assets/DomesticMarketExpertise/customerquery.png";
+import img9 from "../../../assets/DomesticMarketExpertise/auditing.png";
+import img10 from "../../../assets/DomesticMarketExpertise/incometax.png";
+import img11 from "../../../assets/DomesticMarketExpertise/mutualfunds.png";
+import img12 from "../../../assets/DomesticMarketExpertise/loanadvisary.png";
+
 import myIcon from "../../../assets/Hero/arrow.png";
 
 const data = [
-  "GST REGISTRATION",
-  "GST REGISTRATION",
-  "GST FILINGS",
-  "GST RECONCILIATION",
-  "UDYAM CERTIFICATION",
-  "BOOKKEEPING",
-  "ACCOUNTING & RECONCILIATION",
-  "SALES INVOICE, EINVOICE OR EWAY BILL GENERATION",
-  "CUSTOMER QUERY MANAGEMENT",
-  "AUDITING & COMPLIANCE",
-  "INCOME TAX FILINGS",
-  "MUTUAL FUNDS & SIP ADVISORY",
+  {
+    title: "GST REGISTRATION",
+    desc: "Hassle-free registration toobtain your GSTIN quicklyand smoothly.",
+    img: img1,
+  },
+  {
+    title: "GST FILINGS",
+    desc: "Timely and accurate filing of monthly/quarterly returns.",
+    img: img2,
+  },
+  {
+    title: "GST RECONCILIATION",
+    desc: "Match your purchase and sales data to avoid mismatches and penalties.",
+    img: img3,
+  },
+  {
+    title: "UDYAM CERTIFICATION",
+    desc: "Register your business under MSME for government benefits.",
+    img: img4,
+  },
+  {
+    title: "BOOKKEEPING",
+    desc: "Organized records of all your financial transactions.",
+    img: img5,
+  },
+  {
+    title: "ACCOUNTING & RECONCILIATION",
+    desc: "Maintain accurate accounts and reconcile statements with ease. ",
+    img: img6,
+  },
+  {
+    title: "SALES INVOICE, EINVOICE OR EWAY BILL GENERATION",
+    desc: "Professional invoices that meet GST compliance standards.",
+    img: img7,
+  },
+  {
+    title: "CUSTOMER QUERY MANAGEMENT",
+    desc: "Streamlined support to handle client queries efficiently.",
+    img: img8,
+  },
+  {
+    title: "AUDITING & COMPLIANCE",
+    desc: "Ensure your business meets statutory requirements with expert guidance.",
+    img: img9,
+  },
+  {
+    title: "INCOME TAX FILINGS",
+    desc: "Simplified filing for individuals and businesses.",
+    img: img10,
+  },
+  {
+    title: "MUTUAL FUNDS & SIP ADVISORY",
+    desc: "Guidance to grow wealth through smart investments.",
+    img: img11,
+  },
+  {
+    title: "LOAN ADVISORY",
+    desc: "Assistance in choosing the right financing options for your business.",
+    img: img12,
+  }
 ];
 
 const DomesticServices = () => {
@@ -30,7 +90,6 @@ const DomesticServices = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
 
-  // Arrow animation variants
   const arrowVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: {
@@ -50,7 +109,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Tag fade in animation
   const tagVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -63,7 +121,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Card container variants for grid layout
   const gridContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,7 +132,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Individual card variants
   const cardVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
@@ -100,7 +156,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Slide variants for slider layout
   const slideVariants = {
     hidden: { opacity: 0, x: 100 },
     visible: {
@@ -121,7 +176,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Button variants
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -146,7 +200,6 @@ const DomesticServices = () => {
     },
   };
 
-  // Section container animation
   const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -245,10 +298,7 @@ const DomesticServices = () => {
       viewport={{ once: true, amount: 0.1 }}
     >
       <div className="domestic__top">
-        <motion.p
-          className="domestic__tag"
-          variants={tagVariants}
-        >
+        <motion.p className="domestic__tag" variants={tagVariants}>
           <motion.span
             variants={arrowVariants}
             initial="hidden"
@@ -260,16 +310,11 @@ const DomesticServices = () => {
           OUR DOMESTIC SERVICES
         </motion.p>
 
-        <motion.h2
-          variants={tagVariants}
-        >
+        <motion.h2 variants={tagVariants}>
           All-in-One Business Support
         </motion.h2>
 
-        <motion.p
-          className="domestic__desc"
-          variants={tagVariants}
-        >
+        <motion.p className="domestic__desc" variants={tagVariants}>
           Managing compliance, taxation, and finances can be complex. Our
           domestic market services are designed to simplify these processes,
           ensuring accuracy, efficiency, and peace of mind.
@@ -284,35 +329,32 @@ const DomesticServices = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {data.map((title, i) => (
+          {data.map((item, i) => (
             <motion.div
               className="domestic__card"
-              key={`${title}-${i}`}
+              key={`${item.title}-${i}`}
               variants={cardVariants}
               whileHover="hover"
               custom={i}
             >
               <div className="card-text">
-                <h4>{title}</h4>
-                <p>
-                  Hassle-free registration and complete compliance solutions
-                  for your business growth.
-                </p>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
               </div>
 
               <div className="card-img">
-                <img src={cardImg} alt={title} />
+                <img src={item.img} alt={item.title} />
               </div>
 
               <div
-  className="card-icon"
-  onClick={(e) => {
-    e.stopPropagation();
-    navigate("/contact");
-  }}
->
-  <img src={myIcon} alt="icon" />
-</div>
+                className="card-icon"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/contact");
+                }}
+              >
+                <img src={myIcon} alt="icon" />
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -330,10 +372,10 @@ const DomesticServices = () => {
               duration: 0.5,
             }}
           >
-            {data.map((title, i) => (
+            {data.map((item, i) => (
               <motion.div
                 className="domestic__slide"
-                key={`${title}-${i}`}
+                key={`${item.title}-${i}`}
                 onClick={handleCardClick}
                 style={{ minWidth: `${100 / visibleCards}%` }}
                 variants={slideVariants}
@@ -348,26 +390,23 @@ const DomesticServices = () => {
                   transition={{ type: "spring", stiffness: 300, damping: 12 }}
                 >
                   <div className="card-text">
-                    <h4>{title}</h4>
-                    <p>
-                      Hassle-free registration and complete compliance
-                      solutions for your business growth.
-                    </p>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
                   </div>
 
                   <div className="card-img">
-                    <img src={cardImg} alt={title} />
+                    <img src={item.img} alt={item.title} />
                   </div>
 
                   <div
-  className="card-icon"
-  onClick={(e) => {
-    e.stopPropagation();
-    navigate("/contact");
-  }}
->
-  <img src={myIcon} alt="icon" />
-</div>
+                    className="card-icon"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate("/contact");
+                    }}
+                  >
+                    <img src={myIcon} alt="icon" />
+                  </div>
                 </motion.div>
               </motion.div>
             ))}
@@ -383,13 +422,13 @@ const DomesticServices = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-     <motion.button className="nav-btn" onClick={handlePrev}>
- <HiMiniArrowLongLeft size={26} />
-</motion.button>
+          <motion.button className="nav-btn" onClick={handlePrev}>
+            <HiMiniArrowLongLeft size={26} />
+          </motion.button>
 
-<motion.button className="nav-btn" onClick={handleNext}>
-  <HiMiniArrowLongRight size={26} />
-</motion.button>
+          <motion.button className="nav-btn" onClick={handleNext}>
+            <HiMiniArrowLongRight size={26} />
+          </motion.button>
         </motion.div>
       )}
     </motion.div>

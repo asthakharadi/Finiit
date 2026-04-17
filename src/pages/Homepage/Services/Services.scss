@@ -143,6 +143,7 @@
   font-weight: 400;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
+  text-align: justify;
 
   @media (max-width: 1024px) {
     font-size: 18px;
@@ -483,4 +484,30 @@
 /* BODY FONT */
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+
+@media (max-width: 576px) {
+
+  /* LEFT (1st & 3rd) */
+  .feature:nth-child(1),
+  .feature:nth-child(3) {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row; // default
+  }
+
+  /* RIGHT (2nd & 4th) */
+  .feature:nth-child(2),
+  .feature:nth-child(4) {
+    justify-content: flex-end;
+    text-align: right;
+    flex-direction: row-reverse; // 🔥 icon right side
+  }
+
+  /* text alignment fix */
+  .feature:nth-child(2) p,
+  .feature:nth-child(4) p {
+    text-align: right;
+  }
 }

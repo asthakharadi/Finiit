@@ -128,9 +128,7 @@ const About = () => {
           <motion.span
             variants={arrowVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.8 }}
-            animate="animate"
+            animate={["visible", "animate"]}
             style={{ display: "inline-flex", alignItems: "center" }}
           >
             <MdKeyboardDoubleArrowUp className="tag-arrow" />
